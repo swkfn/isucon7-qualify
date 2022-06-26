@@ -275,8 +275,7 @@ function fetchUnread(req, res) {
     return
   }
 
-  return sleep(1.0)
-    .then(() => pool.query('SELECT id FROM channel'))
+  return pool.query('SELECT id FROM channel')
     .then(rows => {
       const channelIds = rows.map(row => row.id)
       const results = []
